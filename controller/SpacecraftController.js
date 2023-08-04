@@ -18,31 +18,34 @@ class SpacecraftController {
   //   // };
   // }
 
-  processCommands(command) {
-    var Position = { x: 0, y: 0, z: 0 };
+  processCommands(command, position, direction) {
+    var Position = position;
     // var DirectionOfCraft = "N";
 
-    var CurrentDirection = "N";
-    var direction = { N: "N", S: "S", E: "E", W: "W" }
+    var CurrentDirection = direction;
+    console.log("CurrentDirection - ", CurrentDirection);
+
+    console.log(CurrentDirection);
+    // var direction = { N: "N", S: "S", E: "E", W: "W" }
     var commands = { f: "f", b: "b", l: "l", r: "r", u: "u", d: "d" };
     if (command == commands.f || command == commands.b || command == commands.r || command == commands.l || command == commands.u || command == commands.d) {
       if (command == commands.f) {
         if (CurrentDirection == "N") {
           Position.y = Position.y + 1;
         }
-        if (CurrentDirection == "S") {
+        else if (CurrentDirection == "S") {
           Position.y = Position.y - 1;
         }
-        if (CurrentDirection == "E") {
+        else if (CurrentDirection == "E") {
           Position.x = Position.x + 1;
         }
-        if (CurrentDirection == "W") {
+        else if (CurrentDirection == "W") {
           Position.x = Position.x - 1;
         }
-        if (CurrentDirection == "U") {
+        else if (CurrentDirection == "U") {
           Position.z = Position.z + 1;
         }
-        if (CurrentDirection == "D") {
+        else if (CurrentDirection == "D") {
           Position.z = Position.z - 1;
         }
       }
@@ -50,19 +53,19 @@ class SpacecraftController {
         if (CurrentDirection == "N") {
           Position.y = Position.y - 1;
         }
-        if (CurrentDirection == "S") {
+        else if (CurrentDirection == "S") {
           Position.y = Position.y + 1;
         }
-        if (CurrentDirection == "E") {
+        else if (CurrentDirection == "E") {
           Position.x = Position.x - 1;
         }
-        if (CurrentDirection == "W") {
+        else if (CurrentDirection == "W") {
           Position.x = Position.x + 1;
         }
-        if (CurrentDirection == "U") {
+        else if (CurrentDirection == "U") {
           Position.z = Position.z - 1;
         }
-        if (CurrentDirection == "D") {
+        else if (CurrentDirection == "D") {
           Position.z = Position.z + 1;
         }
       }
@@ -70,19 +73,19 @@ class SpacecraftController {
         if (CurrentDirection == "N") {
           CurrentDirection = "W";
         }
-        if (CurrentDirection == "S") {
+        else if (CurrentDirection == "S") {
           CurrentDirection = "E";
         }
-        if (CurrentDirection == "E") {
+        else if (CurrentDirection == "E") {
           CurrentDirection = "N";
         }
-        if (CurrentDirection == "W") {
+        else if (CurrentDirection == "W") {
           CurrentDirection = "S";
         }
-        if (CurrentDirection == "U") {
+        else if (CurrentDirection == "U") {
           CurrentDirection = "W";
         }
-        if (CurrentDirection == "D") {
+        else if (CurrentDirection == "D") {
           CurrentDirection = "E";
         }
       }
@@ -90,19 +93,19 @@ class SpacecraftController {
         if (CurrentDirection == "N") {
           CurrentDirection = "E";
         }
-        if (CurrentDirection == "S") {
+        else if (CurrentDirection == "S") {
           CurrentDirection = "W";
         }
-        if (CurrentDirection == "E") {
+        else if (CurrentDirection == "E") {
           CurrentDirection = "S";
         }
-        if (CurrentDirection == "W") {
+        else if (CurrentDirection == "W") {
           CurrentDirection = "N";
         }
-        if (CurrentDirection == "U") {
+        else if (CurrentDirection == "U") {
           CurrentDirection = "E";
         }
-        if (CurrentDirection == "D") {
+        else if (CurrentDirection == "D") {
           CurrentDirection = "W";
         }
       }
@@ -110,19 +113,19 @@ class SpacecraftController {
         if (CurrentDirection == "N") {
           CurrentDirection = "U";
         }
-        if (CurrentDirection == "S") {
+        else if (CurrentDirection == "S") {
           CurrentDirection = "U";
         }
-        if (CurrentDirection == "E") {
+        else if (CurrentDirection == "E") {
           CurrentDirection = "U";
         }
-        if (CurrentDirection == "W") {
+        else if (CurrentDirection == "W") {
           CurrentDirection = "U";
         }
-        if (CurrentDirection == "U") {
+        else if (CurrentDirection == "U") {
           CurrentDirection = "U";
         }
-        if (CurrentDirection == "D") {
+        else if (CurrentDirection == "D") {
           CurrentDirection = "U";
         }
       }
@@ -130,25 +133,29 @@ class SpacecraftController {
         if (CurrentDirection == "N") {
           CurrentDirection = "D";
         }
-        if (CurrentDirection == "S") {
+        else if (CurrentDirection == "S") {
           CurrentDirection = "D";
         }
-        if (CurrentDirection == "E") {
+        else if (CurrentDirection == "E") {
           CurrentDirection = "D";
         }
-        if (CurrentDirection == "W") {
+        else if (CurrentDirection == "W") {
           CurrentDirection = "D";
         }
-        if (CurrentDirection == "U") {
+        else if (CurrentDirection == "U") {
           CurrentDirection = "D";
         }
-        if (CurrentDirection == "D") {
+        else if (CurrentDirection == "D") {
           CurrentDirection = "D";
         }
       }
     }
 
-    console.log(Position + "-" + CurrentDirection);
+    return {
+      Position,
+      CurrentDirection
+    };
+
   }
 }
 
